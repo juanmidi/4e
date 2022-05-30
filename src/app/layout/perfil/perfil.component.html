@@ -1,0 +1,21 @@
+<h1>Perfil</h1>
+<mat-card
+    fxLayout="row wrap"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="32px"
+    fxLayoutAlign="flex-start"
+>
+    <mat-form-field>
+        <mat-label>Apellido</mat-label>
+        <input matInput [value]="user.apellido" />
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput [value]="user.nombre" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>email</mat-label>
+        <input matInput [value]="user.email" />
+    </mat-form-field>
+</mat-card>

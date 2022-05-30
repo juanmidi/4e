@@ -1,0 +1,28 @@
+
+<!-- <ul>
+  <li *ngFor="let item of mono">{{item.apellido }}</li>
+</ul> -->
+
+
+<table mat-table [dataSource]="mono" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="apellido">
+    <th mat-header-cell *matHeaderCellDef> Apellido </th>
+    <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

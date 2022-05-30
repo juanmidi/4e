@@ -1,0 +1,51 @@
+<div id="sidebar">
+    <mat-nav-list>
+        <a
+            mat-list-item
+            [routerLinkActive]="'active'"
+            [routerLink]="['/dashboard']"
+        >
+            <mat-icon class="sidenav-icon">dashboard</mat-icon>
+            {{ "Escritorio" | translate }}
+        </a>
+        <!-- <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/screen1']">
+            <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Screen1' | translate }}
+        </a>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/screen2']">
+            <mat-icon class="sidenav-icon">people</mat-icon> {{ 'Screen2' | translate }}
+        </a> -->
+        <div *ngIf="role == 1 || role == 10">
+            <a
+                mat-list-item
+                [routerLinkActive]="'active'"
+                [routerLink]="['/asistencia']"
+            >
+                <mat-icon class="sidenav-icon">people</mat-icon>
+                {{ "Asistencia" | translate }}
+            </a>
+        </div>
+        <div *ngIf="role == 10">
+            <a
+                mat-list-item
+                [routerLinkActive]="'active'"
+                [routerLink]="['/proyectos']"
+            >
+                <mat-icon class="sidenav-icon">file_open</mat-icon>
+                {{ "Proyectos" | translate }}
+            </a>
+        </div>
+        <div *ngIf="role == 2 || role == 10">
+            <a
+                mat-list-item
+                [routerLinkActive]="'active'"
+                [routerLink]="['/prestamo-instrumento']"
+            >
+                <mat-icon class="sidenav-icon">piano</mat-icon>
+                {{ "Préstamo de Instrumentos" | translate }}
+            </a>
+        </div>
+        <!-- <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/mismaterias']">
+            <mat-icon class="sidenav-icon">people</mat-icon> {{ 'Mis Materias' | translate }}
+        </a> -->
+    </mat-nav-list>
+</div>

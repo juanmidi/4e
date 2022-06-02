@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
           this.subRef$ = this.dataService.post(`${this.url}/login`, this.loginForm.getRawValue())
             .subscribe(res => {
               const token = res.body.accessToken;
-              console.log(token);
+              // console.log(token);
               const refresh_token = res.body.refresh_token;
               this.securityService.SetAuthData(token, refresh_token);
 
@@ -86,7 +86,7 @@ export class LoginComponent implements OnInit {
               // reemplazar esta línea por acceso a security
               // localStorage.setItem('isLoggedin', 'true');
             }, err => {
-              console.log('Error en el login', err);
+              // console.log('Error en el login', err);
               this.openSnackBar('No se puede conectar al servidor', 'Cerrar');
             });
       }

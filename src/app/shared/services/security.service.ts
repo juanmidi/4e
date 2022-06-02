@@ -71,8 +71,8 @@ export class SecurityService {
     isTokenExpired(): boolean {
       const expiryTime: number = this.getExpiryTime();
       if (expiryTime) {
-        console.log('expiryTime', 1000 * expiryTime, 'new Date().getTime()', new Date().getTime() );
-        console.log(((1000 * expiryTime) - (new Date()).getTime()));
+        // console.log('expiryTime', 1000 * expiryTime, 'new Date().getTime()', new Date().getTime() );
+        // console.log(((1000 * expiryTime) - (new Date()).getTime()));
         return ((1000 * expiryTime) - (new Date()).getTime()) < 5000;
       } else {
         return false;

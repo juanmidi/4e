@@ -42,7 +42,10 @@
             <mat-icon>person</mat-icon>
             <span>{{ 'Perfil' | translate }}</span>
         </button>
-        
+        <button mat-menu-item [routerLink]="['/bug']">
+            <mat-icon>bug_report</mat-icon>
+            <span>{{ 'Reporte de Errores' | translate }}</span>
+        </button>
         <!-- para implementar en breve -->
         <!-- <button mat-menu-item>
             <mat-icon>inbox</mat-icon>

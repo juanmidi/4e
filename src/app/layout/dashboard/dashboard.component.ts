@@ -72,6 +72,6 @@ export class DashboardComponent implements OnInit {
         let data: {};
         data = this.securityService.getDecodeToken();
         this.role = data['user'].role;
-        console.log('Role: ' + this.role);
+        // console.log('Role: ' + this.role);
     }
 }

@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     canActivate() {
         if (this.securityService.getUser()) {
             if (this.securityService.isTokenExpired()) {
-                console.log('token expirado');
+                // console.log('token expirado');
                 console.log(this.securityService.minutesExpiredTime());
                 // this.securityService.LogOff();
                 // this.router.navigate(['/login']);

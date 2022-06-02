@@ -135,7 +135,7 @@ export class AsistenciaComponent implements OnInit {
 
     setDocente(codPers) {
         this.cargarCatedrasPorProfe(codPers);
-        console.log(codPers);
+        // console.log(codPers);
     }
 
     horariosCatedra(idcomision, fecha) {
@@ -161,7 +161,7 @@ export class AsistenciaComponent implements OnInit {
                     tmpDate.getHours() * 60 + tmpDate.getMinutes();
                 const horaInicio = this.horaInicioCatedra(this.horarios, fecha);
 
-                console.log('diaHabilitado ', this.diaHabilitado);
+                // console.log('diaHabilitado ', this.diaHabilitado);
                 // -->
                 if (horaInicio === undefined) {
                     this.horaInicio = undefined;
@@ -170,8 +170,8 @@ export class AsistenciaComponent implements OnInit {
                     const min = Number(horaInicio.slice(2));
                     this.horaInicio = hora * 60 + min;
 
-                    console.log('benja');
-                    console.log(this.horaActual, this.horaInicio);
+                    // console.log('benja');
+                    // console.log(this.horaActual, this.horaInicio);
                 }
 
                 // -->
@@ -193,7 +193,7 @@ export class AsistenciaComponent implements OnInit {
                 this.dias = this.horarios.map(function (x) {
                     return Number(x.id_dia);
                 });
-                console.log(this.dias);
+                // console.log(this.dias);
             },
             (error) => {
                 if (error.status === 401) {
@@ -204,7 +204,7 @@ export class AsistenciaComponent implements OnInit {
 
     estudiantesPorComision(idcomision, fecha) {
         const url = `${environment.apiBaseUrl}/asistencia_estudiantes_por_comision?idcomision=${idcomision}&fecha=${fecha}`;
-        console.log(fecha, url);
+        // console.log(fecha, url);
         const params = {};
         this.dataService.get(url, params).subscribe(
             (respuesta) => {
@@ -219,7 +219,7 @@ export class AsistenciaComponent implements OnInit {
 
     mono(el) {
         if (this.horaHabilitado || Number(this.role) === 1) {
-            console.log(el);
+            // console.log(el);
             if (el.estado === 'p') {
                 el.estado = 'a';
             } else {
@@ -231,22 +231,22 @@ export class AsistenciaComponent implements OnInit {
     diasCatedra(x, fecha, fechaHoy): boolean {
         const dia = fecha.getDay(); // 1,2,3,4,5,6,7 número de día
         const diaHoy = fechaHoy.getDay();
-        console.log('diasCatedra -> dia ', dia, diaHoy);
+        // console.log('diasCatedra -> dia ', dia, diaHoy);
         for (const i in x) {
             if (x[i].id_dia) {
-                console.log(
+                /*console.log(
                     'diasCatedra -> en if ---> dia --> ',
                     dia,
                     'diaHoy --> ',
                     diaHoy
-                );
+                );*/
                 if (dia === Number(x[i].id_dia) && diaHoy === dia) {
-                    console.log(
+                    /*console.log(
                         'monoooooooooooo######################',
                         dia,
                         x[i].id_dia,
                         diaHoy
-                    );
+                    );*/
                     return true;
                 }
             }
@@ -307,13 +307,13 @@ export class AsistenciaComponent implements OnInit {
 */
 
     comprobarMinutosGuardar(fecha) {
-        console.log('en comprobarMinutosGuardar');
+        // console.log('en comprobarMinutosGuardar');
         let ahora = null;
         let dife = null;
         ahora = new Date();
         this.horaActual = ahora.getHours() * 60 + ahora.getMinutes();
         dife = this.horaActual - this.horaInicio;
-        console.log(this.horaActual, this.horaInicio, dife);
+        // console.log(this.horaActual, this.horaInicio, dife);
         if (dife < 15 && dife >= 0) {
             this.horaHabilitado = true;
             if (dife === 14) {
@@ -324,14 +324,14 @@ export class AsistenciaComponent implements OnInit {
 
             // clearInterval(this.chkInterval);
         }
-        console.log(this.horaActual);
+        // console.log(this.horaActual);
     }
 
     guardar(idcomision, fecha) {
         // el parámetro fecha recibe la fecha para releer los datos
         const url = `${environment.apiBaseUrl}/asistencia_guardar`;
-        console.log(url);
-        console.log(this.estudiantes);
+        // console.log(url);
+        // console.log(this.estudiantes);
         this.dataService.post(url, this.estudiantes).subscribe(
             (data) => {
                 this.cargarDatos(idcomision, fecha);
@@ -363,7 +363,7 @@ export class AsistenciaComponent implements OnInit {
     }
 
     verColumnas(e) {
-        console.log(e.checked);
+        // console.log(e.checked);
         if (e.checked) {
             this.displayedColumns.push('Faltas Tot.');
         } else {

@@ -8,8 +8,9 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
 import { Screen2Component } from './screen2/screen2.component';
-import { ProyectosComponent } from './proyectos/proyectos.component';
-import { PrestamoInstrumentoComponent } from './prestamo-instrumento/prestamo-instrumento.component';
+// import { ProyectosComponent } from './proyectos/proyectos.component';
+// import { PrestamoInstrumentoComponent } from './prestamo-instrumento/prestamo-instrumento.component';
+// import { BugsComponent } from './bugs/bugs.component';
 // import { MisMateriasComponent } from './mis-materias/mis-materias.component';
 // import { AsistenciaComponent } from './asistencia/asistencia.component';
 // import { PerfilComponent } from './perfil/perfil.component';
@@ -27,6 +28,7 @@ import { PrestamoInstrumentoComponent } from './prestamo-instrumento/prestamo-in
         NavComponent,
         TopnavComponent,
         SidebarComponent,
+        // BugsComponent,
         // PrestamoInstrumentoComponent
         // ProyectosComponent,
         // PerfilComponent

@@ -4,14 +4,15 @@ import { PrestamoInstrumentoComponent } from '../../layout/prestamo-instrumento/
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../shared/modules/material/material.module';
 import { CommonModule } from '@angular/common';
-// the scanner!
+import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 @NgModule({
     declarations: [PrestamoInstrumentoComponent],
     imports: [
         FormsModule,
         MaterialModule,
         CommonModule,
-        PrestamoInstrumentoRoutingModule
+        PrestamoInstrumentoRoutingModule,
+        NgxScannerQrcodeModule
     ]
     })
 

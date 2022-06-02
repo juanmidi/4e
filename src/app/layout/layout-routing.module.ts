@@ -57,10 +57,17 @@ const routes: Routes = [
                 loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilModule),
                 canActivate: [AuthGuard]
                 // component: PerfilComponent
+            },
+            {
+                path: 'bug',
+                loadChildren: () => import('./bugs/bugs.module').then(m => m.BugsModule),
+                canActivate: [AuthGuard]
+                // component: PerfilComponent
             }
         ]
     }
 ];
+
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

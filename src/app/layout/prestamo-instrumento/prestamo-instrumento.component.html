@@ -1,1 +1,8 @@
 <p>prestamo-instrumento works!</p>
+
+<ngx-scanner-qrcode #action="scanner" (data)="output = $event"></ngx-scanner-qrcode>
+<span>{{output}}</span><br>
+<input name="mono" type="text"  [(ngModel)]="output">
+<button (click)="action.toggleCamera()" [disabled]="action.isLoading">{{action.isStart ? 'Stop' : 'Start'}}</button>
+<br>
+{{action.isLoading}}

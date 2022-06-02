@@ -68,7 +68,7 @@ export class MisMateriasComponent implements OnInit {
         let result = false;
         this.correlatividades.map((res) => {
             if (res.COD_MATER === codMater) {
-              console.log(res.COD_MATER, codMater);
+              // console.log(res.COD_MATER, codMater);
               if (res.estado === '9') {
                 result = true;
               } else {

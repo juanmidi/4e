@@ -148,7 +148,6 @@
                         "
                         mat-cell
                         *matCellDef="let element"
-                        (click)="mono(element)"
                     >
                         {{ element.total_faltas }}
                     </td>
@@ -165,6 +164,8 @@
                 <div fxFlex="100%">
                     <button
                         [disabled]="!horaHabilitado || !diaHabilitado"
+                        [mtBasicSpinner]="saving"
+                        [hideText]="true"
                         mat-raised-button
                         color="primary"
                         (click)="guardar(selectedCated, startDate)"
@@ -172,7 +173,7 @@
                         Guardar</button
                     >
                     <button
-                        *ngIf="role ==10"
+                        *ngIf="role == 10"
                         mat-raised-button
                         color="primary"
                         (click)="guardar(selectedCated, startDate)"

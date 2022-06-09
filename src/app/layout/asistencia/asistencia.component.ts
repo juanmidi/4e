@@ -35,6 +35,7 @@ export class AsistenciaComponent implements OnInit {
     chkInterval;
     dias: number[] = [1, 2];
     cantDiasPorSemana: number;
+    saving: boolean;
 
     date1 = new Date();
     currentYear = this.date1.getUTCFullYear();
@@ -73,6 +74,7 @@ export class AsistenciaComponent implements OnInit {
             this.currentYear + '-' + this.finalMonth + '-' + this.finalDay;
         this.diaHabilitado = false;
         this.chkInterval = false;
+        this.saving = false;
     }
 
 
@@ -332,12 +334,16 @@ export class AsistenciaComponent implements OnInit {
         const url = `${environment.apiBaseUrl}/asistencia_guardar`;
         // console.log(url);
         // console.log(this.estudiantes);
+        this.saving = true;
         this.dataService.post(url, this.estudiantes).subscribe(
             (data) => {
                 this.cargarDatos(idcomision, fecha);
+                this.openSnackBar('Cambios Guardados');
+                this.saving = false;
             },
             (error) => {
                 if (error.status === 401) {
+
                 }
             }
         );

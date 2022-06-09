@@ -12,7 +12,7 @@ import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
         MaterialModule,
         CommonModule,
         PrestamoInstrumentoRoutingModule,
-        NgxScannerQrcodeModule
+        NgxScannerQrcodeModule,
     ]
     })
 

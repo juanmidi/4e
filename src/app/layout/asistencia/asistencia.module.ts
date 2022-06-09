@@ -15,6 +15,7 @@ import { MaterialModule } from '../../shared/modules/material/material.module';
 // import { RelojModule} from '../../layout/reloj/reloj.module';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
+import { NgxLoadingButtonsModule } from 'ngx-loading-buttons';
 
 @NgModule({
   providers: [
@@ -33,6 +34,7 @@ import { DatePipe } from '@angular/common';
     MatTableModule,
     // MatButtonModule,
     MaterialModule,
+    NgxLoadingButtonsModule,
     // RelojModule,
     // MatCheckbox,
     FlexLayoutModule.withConfig({ addFlexToParent: false })

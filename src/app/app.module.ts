@@ -33,6 +33,7 @@ import { DataService } from './shared/services/data.service';
 import { JwtInterceptor } from './shared/services/auth/jwt-interceptor';
 
 import { ProyectosModule } from '../app/layout/proyectos/proyectos.module';
+import { QrScanComponent } from './qr-scan/qr-scan.component';
 
 // import { FlexLayoutModule } from '@angular/flex-layout';
 // AoT requires an exported function for factories
@@ -51,6 +52,7 @@ export const createTranslateLoader = (http: HttpClient) => {
 @NgModule({
     declarations: [
         AppComponent,
+        QrScanComponent,
     ],
     imports: [
         BrowserModule,

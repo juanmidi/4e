@@ -1,35 +1,32 @@
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import {  Component, ChangeDetectionStrategy, OnInit, Input} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-prestamo-instrumento',
   templateUrl: './prestamo-instrumento.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./prestamo-instrumento.component.scss']
 })
-export class PrestamoInstrumentoComponent implements OnInit, OnDestroy, OnChanges {
-  constructor() { }
-@Input() output: string;
+export class PrestamoInstrumentoComponent implements OnInit {
+  private _salida = '';
 
-@Output() changeData = new EventEmitter<string>();
+  @Input()
+  set salida(salida: string) {
+     this._salida = salida;
+     console.log(salida);
+     this.router.navigate(['/bug']);
+  }
+
+  get salida(): string { return this._salida; }
 
 
-ngOnChanges(changes: SimpleChanges) {
+  constructor(private router: Router) {}
 
-    // console.log(changes.output.currentValue);
-    // You can also use categoryId.previousValue and
-    // categoryId.firstChange for comparing old and new values
 
-}
-  // output;
 
-ngOnInit(): void {
+  ngOnInit(): void {
 
-}
-ngOnDestroy(): void {
-}
+  }
 
-modelChangeFn(x) {
-  // console.log('cambio');
-}
 
 }

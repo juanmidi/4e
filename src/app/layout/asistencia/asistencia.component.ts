@@ -220,7 +220,7 @@ export class AsistenciaComponent implements OnInit {
     }
 
     mono(el) {
-        if (this.horaHabilitado || Number(this.role) === 1) {
+        if (this.horaHabilitado || Number(this.role) === 10) {
             // console.log(el);
             if (el.estado === 'p') {
                 el.estado = 'a';

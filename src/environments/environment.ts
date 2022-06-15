@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://imma.edu.ar/api/v1'
+  apiBaseUrl: 'http://imma.edu.ar/api/v1_desarrollo'
 };
 
 /*

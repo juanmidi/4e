@@ -8,11 +8,12 @@ import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-    selector: 'app-asistencia',
-    templateUrl: './asistencia.component.html',
-    styleUrls: ['./asistencia.component.scss'],
+  selector: 'app-calificaciones',
+  templateUrl: './calificaciones.component.html',
+  styleUrls: ['./calificaciones.component.scss']
 })
-export class AsistenciaComponent implements OnInit {
+export class CalificacionesComponent implements OnInit {
+
     constructor(
         private dataService: DataService,
         private securityService: SecurityService,
@@ -24,7 +25,7 @@ export class AsistenciaComponent implements OnInit {
     selectedCated;
     horarios;
     estudiantes;
-    displayedColumns: string[] = ['Apellido', 'Nombre', 'Estado'];
+    displayedColumns: string[] = ['Apellido', 'Nombre', 'C1', 'C2', 'Nota Final'];
     startDate;
     fechaActual;
     ocultarPanel;
@@ -116,7 +117,7 @@ export class AsistenciaComponent implements OnInit {
         // this.diaHabilitado = false;
         const fecha_ = this.datepipe.transform(fecha, 'yyyy-MM-dd');
         this.horariosCatedra(idcomision, fecha);
-        this.estudiantesPorComision(idcomision, fecha_);
+        this.estudiantesPorComision(idcomision);
         const tmpDate = new Date();
         this.horaActual = tmpDate.getHours() * 60 + tmpDate.getMinutes();
     }
@@ -204,8 +205,9 @@ export class AsistenciaComponent implements OnInit {
         );
     }
 
-    estudiantesPorComision(idcomision, fecha) {
-        const url = `${environment.apiBaseUrl}/asistencia_estudiantes_por_comision?idcomision=${idcomision}&fecha=${fecha}`;
+    estudiantesPorComision(comision) {
+        const anio = new Date().getFullYear();
+        const url = `${environment.apiBaseUrl}/notas_cuatrimestres?comision=${comision}&anio=${anio}`;
         // console.log(fecha, url);
         const params = {};
         this.dataService.get(url, params).subscribe(
@@ -220,14 +222,12 @@ export class AsistenciaComponent implements OnInit {
     }
 
     mono(el) {
-        if (this.horaHabilitado || Number(this.role) === 10 ) {
-            // console.log(el);
-            if (el.estado === 'p') {
-                el.estado = 'a';
-            } else {
-                el.estado = 'p';
+        // if (this.horaHabilitado || Number(this.role) === 10 ) {
+            console.log(el);
+            if (Number(el.c1) > 0 && Number(el.c1) < 11 ) {
+                el.c1 = 'a';
             }
-        }
+        // }
     }
 
     diasCatedra(x, fecha, fechaHoy): boolean {
@@ -329,15 +329,11 @@ export class AsistenciaComponent implements OnInit {
         // console.log(this.horaActual);
     }
 
-    guardar(idcomision, fecha) {
-        // el parámetro fecha recibe la fecha para releer los datos
-        const url = `${environment.apiBaseUrl}/asistencia_guardar`;
-        // console.log(url);
-        // console.log(this.estudiantes);
+    guardar() {
+        const url = `${environment.apiBaseUrl}/notas_cuatrimestres_guardar`;
         this.saving = true;
         this.dataService.post(url, this.estudiantes).subscribe(
             (data) => {
-                this.cargarDatos(idcomision, fecha);
                 this.openSnackBar('Cambios Guardados');
                 this.saving = false;
             },
@@ -377,3 +373,4 @@ export class AsistenciaComponent implements OnInit {
         }
     }
 }
+

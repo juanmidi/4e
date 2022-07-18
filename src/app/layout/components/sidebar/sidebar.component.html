@@ -24,6 +24,16 @@
                 {{ "Asistencia" | translate }}
             </a>
         </div>
+        <div *ngIf="role == 1 || role == 10">
+            <a
+                mat-list-item
+                [routerLinkActive]="'active'"
+                [routerLink]="['/calificaciones']"
+            >
+                <mat-icon class="sidenav-icon">bookmark</mat-icon>
+                {{ "Calificaciones" | translate }}
+            </a>
+        </div>
         <div *ngIf="role == 10">
             <a
                 mat-list-item

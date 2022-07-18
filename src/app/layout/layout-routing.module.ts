@@ -41,6 +41,12 @@ const routes: Routes = [
                 canActivate: [AuthGuard]
             },
             {
+                path: 'calificaciones',
+                loadChildren: () => import('./calificaciones/calificaciones.module').then(m => m.CalificacionesModule),
+                // component: AsistenciaComponent
+                canActivate: [AuthGuard]
+            },
+            {
                 path: 'mismaterias',
                 component: MisMateriasComponent
             },

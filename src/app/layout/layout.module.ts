@@ -8,6 +8,7 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
 import { Screen2Component } from './screen2/screen2.component';
+import { CalificacionesComponent } from './calificaciones/calificaciones.component';
 // import { ProyectosComponent } from './proyectos/proyectos.component';
 // import { PrestamoInstrumentoComponent } from './prestamo-instrumento/prestamo-instrumento.component';
 // import { BugsComponent } from './bugs/bugs.component';
@@ -28,6 +29,7 @@ import { Screen2Component } from './screen2/screen2.component';
         NavComponent,
         TopnavComponent,
         SidebarComponent,
+        // CalificacionesComponent,
         // BugsComponent,
         // PrestamoInstrumentoComponent
         // ProyectosComponent,

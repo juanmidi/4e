@@ -4,6 +4,9 @@
         <app-stat [bgClass]="'color1'" [icon]="'dashboard'" [count]="" [label]="'Asistencia'" [routerLink]="['/asistencia']"></app-stat>
     </div>
 
+    <div *ngIf="role==1 || role==10" fxFlex>
+        <app-stat [bgClass]="'color4'" [icon]="'bookmark'" [count]="" [label]="'calificaciones'" [routerLink]="['/calificaciones']"></app-stat>
+    </div>
     
     <div *ngIf="role==10" fxFlex>
         <app-stat [bgClass]="'color2'" [icon]="'view_list'" [count]="" [label]="'Proyectos'"></app-stat>
